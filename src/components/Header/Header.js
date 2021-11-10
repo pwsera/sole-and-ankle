@@ -12,7 +12,9 @@ const Header = () => {
     <header>
       <SuperHeader />
       <MainHeader>
-        <Logo />
+        <Side>
+          <Logo />
+        </Side>
         <Nav>
           <NavLink href="/sale">Sale</NavLink>
           <NavLink href="/new">New&nbsp;Releases</NavLink>
@@ -21,6 +23,7 @@ const Header = () => {
           <NavLink href="/kids">Kids</NavLink>
           <NavLink href="/collections">Collections</NavLink>
         </Nav>
+        <Side />
       </MainHeader>
     </header>
   );
@@ -29,9 +32,24 @@ const Header = () => {
 const MainHeader = styled.div`
   padding: 0 32px;
   border-bottom: 1px solid ${COLORS.gray[300]};
+
+  padding: 20px 32px; /* To have a center and baseline alignment. We could use a separeta container, but tha makes things more complicated */
+
+  display: flex;
+  align-items: baseline;
+  height: 72px;
+  margin: auto;
 `;
 
-const Nav = styled.nav``;
+const Nav = styled.nav`
+  display: flex;
+  gap: 48px;
+  margin: 0px 48px; /* to avoid auto margin, and "sale" collapsing with logo when the window get small*/
+`;
+
+const Side = styled.div`
+  flex: 1; /* To perfect center our nav in the middle. Logo has a hypo size of 0px. Side in left and right takes all the space and nav has no other choice unless be positioned in the middle */
+`;
 
 const NavLink = styled.a`
   font-size: 1.125rem;
