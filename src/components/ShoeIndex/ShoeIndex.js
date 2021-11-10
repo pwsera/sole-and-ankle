@@ -46,11 +46,11 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: row-reverse; /* To invert the order */
   align-items: baseline;
+  gap: 32px;
 `;
 
 const LeftColumn = styled.div`
   flex-basis: 248px;
-  gap: 32px;
 `;
 
 const MainColumn = styled.div`
