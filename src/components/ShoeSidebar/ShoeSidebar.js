@@ -31,6 +31,11 @@ const Link = styled.a`
   font-weight: ${WEIGHTS.medium};
   color: ${COLORS.gray[900]};
   line-height: 2;
+
+  &:hover {
+    opacity: 0.6;
+  }
+
 `;
 
 const ActiveLink = styled(Link)`

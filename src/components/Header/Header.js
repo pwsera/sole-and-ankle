@@ -57,10 +57,39 @@ const NavLink = styled.a`
   text-decoration: none;
   color: ${COLORS.gray[900]};
   font-weight: ${WEIGHTS.medium};
+  position: relative;
+
+  &:hover {
+    opacity: 0.9;
+  }
 
   &:first-of-type {
     color: ${COLORS.secondary};
   }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0.1em;
+    background-color: ${COLORS.gray[900]};
+    opacity: 0;
+    transition: opacity 300ms, transform 300ms;
+  }
+
+
+  &:first-of-type:hover::after,
+  &:first-of-type:focus::after{
+    background-color: ${COLORS.secondary};
+  }
+
+  &:hover::after,
+  &:focus::after {
+  opacity: 1;
+  transform: translate3d(0, 0.2em, 0);
+}
 `;
 
 export default Header;
