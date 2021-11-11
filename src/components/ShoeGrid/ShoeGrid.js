@@ -9,13 +9,15 @@ const ShoeGrid = () => {
     <Wrapper>
       {SHOES.map((shoe) => (
 
-        <ShoeWrapper>
-          <ShoeCard key={shoe.slug} {...shoe} />
+        <ShoeWrapper key={shoe.slug}>
+          <ShoeCard  {...shoe} />
         </ShoeWrapper>
       ))}
     </Wrapper>
   );
 };
+
+/* We could do all flex styles inside ShoeCard, but putting in shoe grid, we can reuse shoecard ion a different context without flex */
 
 const Wrapper = styled.div`
   display: flex;
@@ -23,8 +25,7 @@ const Wrapper = styled.div`
   gap: 32px;
 `;
 
-const ShoeWrapper = styled.div`
-  width: 275px;
+const ShoeWrapper = styled.div`  
   flex: 1;
   min-width: 275px;
 `;
